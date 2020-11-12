@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <title>T-rex Game</title>
+  <link rel="stylesheet" href="style.css"></link>
+  <script src="app.js" charset="utf-8"></script>
+</head>
+<body>
+
+    <div id="desert">
+        Contador: 
+        <span id="contador"></span>
+        <button id="clickme">Click me: 0</button>
+        <h2 id="alert"></h2>  
+        <div class="grid">
+            <div class="dino"></div>
+        </div>
+	
+	<script>
+		let elemento = document.querySelector('#contador');
+		let contador = 0;
+		
+		setInterval(() => elemento.innerHTML = contador++, 1000);
+	</script>
+
+    </body>
+</html>
