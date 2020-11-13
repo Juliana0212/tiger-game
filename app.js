@@ -8,11 +8,13 @@ let isJumping = false
 let isGameOver = false
 
 
-function control() { // 'e' é tecla de controle
-  if (!isJumping) {
-    isJumping = true
-    jump()
-  }    
+function control(e) { // 'e' é tecla de controle
+  if (e === 1){
+    if (!isJumping) {
+      isJumping = true
+      jump()
+    }
+  }   
 }
 
 document.addEventListener ('keyup', control) // 'keyup' é um evento e 'control' função a invocar 
@@ -46,7 +48,7 @@ function jump() {
 }
 
 function generateObstacles() {
-  let randomTime = Math.random() * 4000 //cactus
+  let randomTime = Math.random() * 1000 + 400//Distancia canos
   let obstaclePosition = 1000 // Posição
   const obstacle = document.createElement('div')
   if (!isGameOver) obstacle.classList.add('obstacle')
@@ -77,9 +79,11 @@ generateObstacles()
 var button = document.getElementById("clickme"),
   count = 0;
 button.onclick = function() {
-  count += 1;
-  button.innerHTML = "Click me: " + count;
-  control();
+  if (!isGameOver){
+    count += 1;
+    button.innerHTML = "Você acertou " + count + " pulos";
+    control(1);
+  }
 };
 
 
